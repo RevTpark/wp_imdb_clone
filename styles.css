@@ -1,0 +1,86 @@
+body{
+    padding: 15px 15px 15px 15px;
+}
+
+.nav-container{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+.icon{
+    border-radius: 5px;
+    border: 2px black solid;
+    background-color: #deb522;
+    margin: auto;
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: 25px;
+    padding: 5px 5px 5px 5px;
+}
+
+.nav-bar{
+    margin-top: 10px;
+    flex-grow: 1;
+}
+
+.search-bar{
+    height: 75%;
+    width: 75%;
+    padding-left: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+.nav-bar > button{
+    margin-left: 10px;
+}
+
+.top-movies-container{
+    margin-bottom: 20px;
+}
+
+.carousel{
+    width: 25%;
+}
+
+.movie-categories > label{
+    margin: 0px 5px 0px 5px;
+    padding: 5px 5px 5px 5px;
+    font-size: 15px;
+    color: grey;
+    font-weight: bold;
+    border-radius: 10px;
+    border: 2px grey solid;
+}
+
+.movie-summary{
+    font-size: 20px;
+}
+
+.h-divider{
+    margin-top:5px;
+    margin-bottom:5px;
+    height:1px;
+    width:100%;
+    border-top:1px solid gray;
+}
+
+.stars-list > li{
+    border: 2px darkcyan solid;
+    margin-left: 5px;
+    padding: 5px 5px 5px 5px;
+    border-radius: 10px;
+    color: cornflowerblue;
+}
+
+.watch-list{
+    background-color: rgba(128, 128, 128, 0.5);
+    padding: 10px 0px 10px 0px;
+}
+
+.watch-list > div{
+    margin: 10px 0px 10px 0px;
+}

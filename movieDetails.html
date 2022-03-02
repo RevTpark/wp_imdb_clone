@@ -6,64 +6,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Details</title>
     <link rel="stylesheet" href="styles.css" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
-<body>
-    <nav>
-        <img src="https://bit.ly/34RKAJy" width="10%" height="50%">
-        <input placeholder="Search for a movie">
-        <button>Sign In</button>
-    </nav>
+<body class="bg-dark">
+    <div class="nav-container">
+        <div class="icon">
+            IMDb
+        </div>
+        <nav class="nav-bar">
+            <input placeholder="Search for a movie" class="search-bar">
+            <button class="btn btn-light">Sign In</button>
+            <button class="btn btn-light">Watchlist</button>
+        </nav>
+    </div>
     <div>
-        <div>
+        <div class="text-light text-center">
             <h1>Triangle</h1>
         </div>
-        <div>
-            <label>2009</label>
-            <label>R</label>
+        <div class="text-light text-center mb-3">
+            <label>2009</label> - 
+            <label>R</label> - 
             <label>1h 39m</label>
         </div>
-        <div>
+        <div class="text-center mb-3">
             <img src="https://bit.ly/33ysmw3" alt="movie poster" width="20%">
         </div>
-        <div>
+        <div class="text-light text-center movie-categories mb-3">
             <label>Fantasy</label>
             <label>Mystery</label>
             <label>Sci-Fi</label>
         </div>
-        <div>
-            <div>
-                <p>Yacht passengers encounter mysterious weather conditions that force them to jump onto 
+        <div class="text-light">
+            <div class="movie-summary mb-3">
+                <p>
+                    Yacht passengers encounter mysterious weather conditions that force them to jump onto 
                     another ship, only to have the odd havoc increase.
                 </p>
             </div>
-            <div>
-                <label>Director</label>
-                <label>Christopher Smith</label>
+            <div class="row mb-3">
+                <div class="col">Director</div>
+                <div class="col">Christopher Smith</div>
             </div>
-            <div>
-                <label>Writer</label>
-                <label>Christopher Smith</label>
+            <div class="h-divider"></div>
+            <div class="row mb-3 mt-3">
+                <div class="col">Writer</div>
+                <div class="col">Christopher Smith</div>
             </div>
-            <div>
-                <label>Stars</label>        
-                <ul>
+            <div class="h-divider"></div>
+            <div class="row mb-3 mt-3">
+                <div class="col">Stars</div>        
+                <ul class="col nav stars-list">
                     <li>Mellisa George</li>
                     <li>Joshua Mclvor</li>
                     <li>Jack Taylor</li>
                 </ul>
             </div>
+            <div class="h-divider"></div>
         </div>
-        <div>
-            <label>Genres</label>
-            <ul>
-                <li>Fantasy</li>
-                <li>Mystery</li>
-                <li>Sci-Fi</li>
-                <li>Thriller</li>
-            </ul>
+        <div class="row text-light mt-3 mb-3">
+            <div class="col">Genres</div>
+            <div class="col nav movie-categories">
+                <label>Fantasy</label>
+                <label>Mystery</label>
+                <label>Sci-Fi</label>
+                <label>Thriller</label>
+            </div>
         </div>
-        <div>
-            <h3>Storyline</h3>
+        <div class="h-divider mb-3"></div>
+        <div class="text-light">
+            <h2 class="mb-3" style="color:gold;">Storyline</h2>
             <p>
                 When Jess sets sail on a yacht with a group of friends, she cannot shake the feeling 
                 that there is something wrong. Her suspicions are realized when the yacht hits a storm 
@@ -74,23 +88,29 @@
             </p>
         </div>
     </div>
-    <div>
-        Connect with us
-        <ul>
-            <li>
-                <div>Facebook</div>
+    <div class="text-light">
+        <h3>Connect with us</h3>
+        <ul class="nav">
+            <li class="nav-item">
+                <div class="nav-link">Facebook</div>
             </li>
-            <li>
-                <div>Instagram</div>
+            <li class="nav-item">
+                <div class="nav-link">Instagram</div>
             </li>
-            <li>
-                <div>Twitter</div>
+            <li class="nav-item">
+                <div class="nav-link">Twitter</div>
             </li>
-            <li>
-                <div>Twitch</div>
+            <li class="nav-item">
+                <div class="nav-link">Twitch</div>
             </li>
-            <li>
-                <div>Youtube</div>
+            <li class="nav-item">
+                <div class="nav-link">Youtube</div>
+            </li>
+            <li class="nav-item">
+                <div class="nav-link">Telegram</div>
+            </li>
+            <li class="nav-item">
+                <div class="nav-link">Reddit</div>
             </li>
         </ul>
     </div>
