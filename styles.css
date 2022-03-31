@@ -21,6 +21,18 @@ body{
     padding: 5px 5px 5px 5px;
 }
 
+@media screen and (max-width: 520px) {
+    .icon{
+        border-radius: 5px;
+        border: 2px black solid;
+        background-color: #deb522;
+        margin: auto;
+        font-weight: bold;
+        font-size: 25px;
+        padding: 5px 5px 5px 5px;
+    }
+}
+
 .nav-bar{
     margin-top: 10px;
     flex-grow: 1;
@@ -34,16 +46,59 @@ body{
     border: none;
 }
 
+
+.videoResponsive {
+	padding-bottom:56.25%;
+    height:0;
+    position:relative;
+	padding-top:30px;
+	overflow:hidden;
+}
+.videoResponsive iframe, 
+.videoResponsive object, 
+.videoResponsive embed {
+	position:absolute;
+	left:0;
+    top:0;
+	width:100%;
+	height:100%;
+}
+
 .nav-bar > button{
     margin-left: 10px;
 }
 
+@media screen and (max-width: 910px){
+    .search-bar{
+        height: 50%;
+        width: 100%;
+        padding-left: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: none;
+    }
+
+    .nav-bar > button{
+        margin: auto;
+        margin-bottom: 10px;
+    }
+}
+
 .top-movies-container{
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .carousel{
-    width: 25%;
+    width: 30%;
+    margin: auto;
+}
+
+@media screen and (max-width: 700px) {
+    .carousel{
+        width: 50%;
+        margin: auto;
+    }
 }
 
 .movie-categories > label{
@@ -54,6 +109,18 @@ body{
     font-weight: bold;
     border-radius: 10px;
     border: 2px grey solid;
+}
+
+@media screen and (max-width: 700px) {
+    .movie-categories > label{
+        margin: 0px 5px 5px 5px;
+        padding: 5px 5px 5px 5px;
+        font-size: 15px;
+        color: grey;
+        font-weight: bold;
+        border-radius: 10px;
+        border: 2px grey solid;
+    }
 }
 
 .movie-summary{
@@ -76,6 +143,17 @@ body{
     color: cornflowerblue;
 }
 
+@media screen and (max-width:700px) {
+    .stars-list > li{
+        border: 2px darkcyan solid;
+        margin-left: 5px;
+        margin-bottom: 5px;
+        padding: 5px 5px 5px 5px;
+        border-radius: 10px;
+        color: cornflowerblue;
+    }
+}
+
 .watch-list{
     background-color: rgba(128, 128, 128, 0.5);
     padding: 10px 0px 10px 0px;
@@ -84,3 +162,15 @@ body{
 .watch-list > div{
     margin: 10px 0px 10px 0px;
 }
+
+.email-field, .password-field, .name-field{
+    padding: 0 25% 0 25%;
+}
+
+@media screen and (max-width: 600px) {
+    .email-field, .password-field, .name-field{
+        padding: 0 5% 0 5%;
+    }
+
+}
+
