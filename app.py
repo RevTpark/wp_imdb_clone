@@ -13,7 +13,7 @@ def sign_in():
     return render_template("signIn.html")
 
 
-@app.route("/register")
+@app.route("/register", methods=["GET", "POST"])
 def sign_up():
     return render_template("signUp.html")
 
