@@ -163,7 +163,7 @@ body{
     margin: 10px 0px 10px 0px;
 }
 
-.email-field, .password-field, .name-field{
+.email-field, .password-field, .name-field, .address-field, .city-field, .state-field, .phone-field{
     padding: 0 25% 0 25%;
 }
 
