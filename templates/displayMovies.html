@@ -1,0 +1,33 @@
+{% extends 'base.html'%}
+
+{% block title %}Search Movies{% endblock %}
+
+{% block content %}
+    <div class="movies-list-container">
+        {% for movie in movies %}
+            <a href="{{ url_for('movie_details', movie_id=movie['imdbID'])}}" style="text-decoration:none;">
+                <div class="card-tile text-light row">
+                    <div class="col">
+                        <img class="card-image" src="{{ movie['Poster'] }}" alt="Poster for {{ movie['Title']}}" width="25%">
+                    </div>
+                    <div class="col">
+                        <div class="row">
+                            <div class="col">
+                                {{ movie['Title'] }}
+                            </div>
+                            <div class="col">
+                                {{ movie['Year'] }}
+                            </div>
+                            <div class="col">
+                                {{ movie['Type'] }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            {{ movie['Plot'] }}
+                        </div>
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+{% endblock %}

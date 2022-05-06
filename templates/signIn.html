@@ -5,7 +5,7 @@
 {% block content %}
     <div class="text-light text-center mb-3">
         <h1 class="mb-3">Sign In</h1>
-        <form class="mb-3" method="POST">
+        <form class="mb-3" method="POST" action="{{ url_for('sign_in') }}">
             <div class="form-group mb-3 email-field">
                 <label for="exampleInputEmail1" class="mb-2">Email address</label>
                 <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="example@email.com" name="email">
@@ -19,6 +19,6 @@
         </form>
         <input type="submit" onclick="validateSignIn()" class="btn btn-primary">
         <h4>New to our website?</h4>
-        <p>Join us today for an amazing experience - <a href="#" style="text-decoration: none;">Sign Up</a></p>
+        <p>Join us today for an amazing experience - <a href="{{ url_for('sign_up') }}" style="text-decoration: none;">Sign Up</a></p>
     </div>
 {% endblock %}

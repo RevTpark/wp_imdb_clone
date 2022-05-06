@@ -5,7 +5,7 @@
 {% block content %}
     <div class="text-light text-center">
         <h1 class="mb-3">Sign Up</h1>
-        <form class="mb-3">
+        <form class="mb-3" method="POST" action="{{ url_for('sign_up')}}">
             <div class="form-group mb-3 name-field">
                 <label for="exampleInputName1" class="mb-2">Name</label>
                 <input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="John Smith" name="name">
@@ -28,7 +28,7 @@
             </div>
             <div class="form-group mb-3 state-field">
                 <label for="inputState">State</label>
-                <select id="inputState" class="form-control">
+                <select id="inputState" class="form-control" name="state">
                 <option value="Maharashtra" selected>Maharashtra</option>
                 <option value="Goa">Goa</option>
                 <option value="Kerela">Kerela</option>
@@ -59,10 +59,9 @@
                 <input type="password" class="form-control" id="password2" placeholder="Re-enter Password" name="password2">
                 <p id="password2-error" class="text-warning"></p>
             </div>
-            
+            <input type="submit" class="btn btn-primary" onclick="validateSignUp()">
         </form>
-        <input type="submit" class="btn btn-primary" onclick="validateSignUp()">
-        <p>Already have an account? <a href="#" style="text-decoration: none;">Sign In</a></p>
+        <p>Already have an account? <a href="{{ url_for('sign_in')}}" style="text-decoration: none;">Sign In</a></p>
     </div>
 
 {% endblock %}

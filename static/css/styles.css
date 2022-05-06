@@ -64,7 +64,7 @@ body{
 	height:100%;
 }
 
-.nav-bar > button{
+.nav-bar > a > button{
     margin-left: 10px;
 }
 
@@ -78,7 +78,7 @@ body{
         border: none;
     }
 
-    .nav-bar > button{
+    .nav-bar > a > button{
         margin: auto;
         margin-bottom: 10px;
     }
@@ -174,3 +174,17 @@ body{
 
 }
 
+.movies-list-container{
+    margin: 10px 20px 10px 20px;
+}
+
+.card-tile{
+    margin: 15px 15px 15px 15px;
+    padding: 15px 10px 15px 10px;
+    background-color: rgba(128, 128, 128, 0.379);
+    border-radius: 20px;
+}
+
+.card-image{
+    border-radius: 25px;
+}

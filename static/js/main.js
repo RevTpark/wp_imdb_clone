@@ -1,3 +1,6 @@
+
+
+
 function validateSignIn(){
     let email = document.getElementById("email").value;
     let password = document.getElementById("password").value;
@@ -17,7 +20,7 @@ function validateSignIn(){
         }
     }
     else{
-        if(!email.includes("@") || email.includes(".com")){
+        if(!email.includes("@") || !email.includes(".com")){
             email_error.innerHTML = "Enter a valid Email.";
         }
     }

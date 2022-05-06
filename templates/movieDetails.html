@@ -5,45 +5,45 @@
 {% block content %}
     <div>
         <div class="text-light text-center">
-            <h1>Triangle</h1>
+            <h1>{{ movie['Title'] }}</h1>
         </div>
         <div class="text-light text-center mb-3">
-            <label>2009</label> - 
-            <label>R</label> - 
-            <label>1h 39m</label>
+            <label>{{ movie['Year'] }}</label> - 
+            <label>{{ movie['Rated'] }}</label> - 
+            <label>{{ movie['Runtime'] }}</label>
         </div>
         <div class="text-center mb-3" style="display: flex;">
-            <iframe width="500" src="https://www.youtube.com/embed/17XqBdCiHOI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <img src="https://bit.ly/33ysmw3" alt="movie poster" width="20%">
+            <img src="{{ movie['Poster'] }}" alt="Poster for {{ movie['Title'] }}" width="20%">
         </div>
         <div class="text-light text-center movie-categories mb-3">
-            <label>Fantasy</label>
-            <label>Mystery</label>
-            <label>Sci-Fi</label>
+            {% for genre in movie["Genre"] %}
+            <label>{{ genre }}</label>
+            {% endfor %}
         </div>
         <div class="text-light">
             <div class="movie-summary mb-3">
                 <p>
-                    Yacht passengers encounter mysterious weather conditions that force them to jump onto 
-                    another ship, only to have the odd havoc increase.
+                    {{ movie['Plot'] }}
                 </p>
             </div>
             <div class="row mb-3">
                 <div class="col">Director</div>
-                <div class="col">Christopher Smith</div>
+                <div class="col">
+                    {{ movie['Director'] }}
+                </div>
             </div>
             <div class="h-divider"></div>
             <div class="row mb-3 mt-3">
                 <div class="col">Writer</div>
-                <div class="col">Christopher Smith</div>
+                <div class="col">{{ movie['Writer'] }}</div>
             </div>
             <div class="h-divider"></div>
             <div class="row mb-3 mt-3">
                 <div class="col">Stars</div>        
                 <ul class="col nav stars-list">
-                    <li>Mellisa George</li>
-                    <li>Joshua Mclvor</li>
-                    <li>Jack Taylor</li>
+                    {% for actor in movie['Actors']%}
+                    <li>{{ actor }}</li>
+                    {% endfor %}
                 </ul>
             </div>
             <div class="h-divider"></div>
@@ -51,22 +51,16 @@
         <div class="row text-light mt-3 mb-3">
             <div class="col">Genres</div>
             <div class="col nav movie-categories">
-                <label>Fantasy</label>
-                <label>Mystery</label>
-                <label>Sci-Fi</label>
-                <label>Thriller</label>
+                {% for genre in movie['Genre']%}
+                    <label>{{ genre }}</label>
+                {% endfor %}
             </div>
         </div>
         <div class="h-divider mb-3"></div>
         <div class="text-light">
             <h2 class="mb-3" style="color:gold;">Storyline</h2>
             <p>
-                When Jess sets sail on a yacht with a group of friends, she cannot shake the feeling 
-                that there is something wrong. Her suspicions are realized when the yacht hits a storm 
-                and the group is forced to board a passing ocean liner to get to safety, a ship Jess is 
-                convinced she's been on before. The ship appears deserted, the clock on board has stopped, 
-                but they are not alone... Someone is intent on hunting them down, one by one. And Jess 
-                unknowingly holds the key to end the terror.
+                {{ movie['Plot_Full'] }}
             </p>
         </div>
     </div>
