@@ -34,6 +34,7 @@ body{
 }
 
 .nav-bar{
+    /* display: flex; */
     margin-top: 10px;
     flex-grow: 1;
 }
@@ -155,8 +156,9 @@ body{
 }
 
 .watch-list{
-    background-color: rgba(128, 128, 128, 0.5);
+    background-color: rgba(128, 128, 128, 0.235);
     padding: 10px 0px 10px 0px;
+    border-radius: 50px;
 }
 
 .watch-list > div{
@@ -187,4 +189,16 @@ body{
 
 .card-image{
     border-radius: 25px;
+}
+
+.flash-message{
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 50px;
+}
+
+.flash-message-error{
+    background-color: rgba(255, 0, 0, 0.363);
+    border: 2px solid red;
 }

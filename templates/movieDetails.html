@@ -63,5 +63,10 @@
                 {{ movie['Plot_Full'] }}
             </p>
         </div>
+        <div class="text-center mt-3 mb-3">
+            <a href="{{ url_for('buy_movie', movie_id=movie['imdbID']) }}">
+                <button class="btn btn-primary w-25">Buy {{ movie['Type'] }}</button>
+            </a>
+        </div>
     </div>
 {% endblock %}
