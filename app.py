@@ -4,12 +4,14 @@ import razorpay
 from decouple import config
 from utils import fetch_api, login_required
 
+
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = config("SQLALCHEMY_DATABASE_URI")
 app.config["SECRET_KEY"] = config("SECRET_KEY")
 db = SQLAlchemy(app)
 
 from models import User, Movie, Order
+from forms import LoginForm, RegisterUserForm
 
 @app.route("/")
 def home():
@@ -31,16 +33,15 @@ def search_movies():
 
 @app.route("/login", methods=["GET", "POST"])
 def sign_in():
-    if request.method == "POST":
-        email = request.form.get("email")
-        password = request.form.get("password")
-
-        user = User.query.filter_by(email=email).first()
-        if user and user.check_password(password):
+    form = LoginForm()
+    if form.validate_on_submit():
+        user = User.query.filter_by(email=form.email.data).first()
+        if user and user.check_password(form.password.data):
             session["user_id"] = user.id
-            
+            flash("Logged In Successfully!", "success")
             return redirect(url_for("home"))
-    return render_template("signIn.html")
+        flash("Incorrect credentials provided.", "error")
+    return render_template("signIn.html", form=form)
 
 
 @app.route("/logout")
@@ -48,36 +49,29 @@ def sign_in():
 def sign_out():
     if session.get("user_id"):
         session.pop("user_id")
+        flash("Logged Out Successfully!", "success")
     return redirect(url_for("home"))
 
 
 @app.route("/register", methods=["GET", "POST"])
 def sign_up():
-    if request.method == "POST":
-        name = request.form.get("name")
-        email = request.form.get("email")
-        address = request.form.get("address")
-        city = request.form.get("city")
-        state = request.form.get("state")
-        pin_code = request.form.get("pin-code")
-        phone_number = request.form.get("number")
-        password1 = request.form.get("password1")
-        password2 = request.form.get("password2")
-
+    form = RegisterUserForm()
+    if form.validate_on_submit():
         new_user = User(
-            name=name,
-            email=email,
-            address=address,
-            city=city,
-            state=state,
-            pin_code=pin_code,
-            phone_number=phone_number,
+            name=form.name.data,
+            email=form.email.data,
+            address=form.address.data,
+            city=form.city.data,
+            state=form.state.data,
+            pin_code=form.pin_code.data,
+            phone_number=form.phone_number.data,
         )
-        new_user.set_password(password1)
+        new_user.set_password(form.password.data)
         db.session.add(new_user)
         db.session.commit()
-
-    return render_template("signUp.html")
+        flash("Registered Successfully!", "success")
+        return redirect(url_for("home"))
+    return render_template("signUp.html", form=form)
 
 
 @app.route("/movies/<movie_id>")
@@ -96,7 +90,6 @@ def movie_details(movie_id):
 @login_required
 def watchlist():
     movies = Movie.query.filter_by(user_id=session['user_id']).all()
-
     return render_template("watchlist.html", movies=movies, enumerate=enumerate)
 
 
@@ -155,14 +148,16 @@ def pay_verify():
         )
         db.session.add(new_order)
         db.session.commit()
+        flash("Product Purchase Successful!", "success")
         return redirect(url_for("watchlist"))
-    
+    flash("Payment could not be verified", "error")
     return redirect(url_for("home"))
 
 
 @app.route("/pay/failure")
 @login_required
 def pay_failure():
+    flash("There was some error in payment gateway.", "error")
     return render_template("home.html")
 
 

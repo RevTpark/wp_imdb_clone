@@ -6,17 +6,26 @@
     <div class="text-light text-center mb-3">
         <h1 class="mb-3">Sign In</h1>
         <form class="mb-3" method="POST" action="{{ url_for('sign_in') }}">
-            <div class="form-group mb-3 email-field">
-                <label for="exampleInputEmail1" class="mb-2">Email address</label>
-                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="example@email.com" name="email">
-                <p id="email-error" class="text-warning"></p>
-            </div>
-            <div class="form-group mb-3 password-field">
-                <label for="exampleInputPassword1" class="mb-2">Password</label>
-                <input type="password" class="form-control" id="password" placeholder="Password" name="password">
-                <p id="password-error" class="text-warning"></p>
-            </div>
-            <input type="submit" onclick="validateSignIn()" class="btn btn-primary">
+            {{form.hidden_tag()}}
+            {% for field in form %}
+                {% if field.id != 'csrf_token' %}
+                    <div class="from-group mb-3 name-field">
+                        <label class="mb-2">{{ field.label }}</label>
+                        <br>
+                        {{field(class="form-control")}}
+
+                        {% if field.description and not field.errors %}
+                            <div style="color: grey;"> {{ field.description }}</div>
+                        {% endif %}
+
+                        {% for error in field.errors %}
+                            <div class="text-warning">{{ error }}</div>
+                        {% endfor %}
+                        <br>
+                    </div>
+                {% endif %}
+            {% endfor %}
+            <input type="submit" class="btn btn-primary">
         </form>
         <h4>New to our website?</h4>
         <p>Join us today for an amazing experience - <a href="{{ url_for('sign_up') }}" style="text-decoration: none;">Sign Up</a></p>

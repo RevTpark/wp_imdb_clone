@@ -202,3 +202,8 @@ body{
     background-color: rgba(255, 0, 0, 0.363);
     border: 2px solid red;
 }
+
+.flash-message-success{
+    background-color: rgba(0, 128, 0, 0.365);
+    border: 2px solid green;
+}

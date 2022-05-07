@@ -12,7 +12,7 @@ def login_required(f):
     @wraps(f)
     def wrap(*args, **kwargs):
         if not session.get("user_id", False):
-            flash("User Login required for access.")
+            flash("User Login required for access.", "error")
             return redirect(url_for("home"))
         else:
             return f(*args, **kwargs)
