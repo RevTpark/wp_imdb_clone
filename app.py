@@ -2,7 +2,7 @@ from flask import Flask, redirect, render_template, request, url_for, session, f
 from flask_sqlalchemy import SQLAlchemy
 import razorpay
 from decouple import config
-from utils import fetch_api, login_required
+from utils import fetch_api, fetch_youtube_video, login_required
 
 
 app = Flask(__name__)
@@ -83,6 +83,8 @@ def movie_details(movie_id):
 
     temp_data = fetch_api("i", movie_id, "full")
     data["Plot_Full"] = temp_data["Plot"]
+
+    data['videoId'] = fetch_youtube_video(data['Title']+"trailer")
     return render_template("movieDetails.html", movie=data)
 
 

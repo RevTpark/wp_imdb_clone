@@ -13,6 +13,7 @@
             <label>{{ movie['Runtime'] }}</label>
         </div>
         <div class="text-center mb-3" style="display: flex;">
+            <iframe width="500" src="https://www.youtube.com/embed/{{ movie['videoId'] }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <img src="{{ movie['Poster'] }}" alt="Poster for {{ movie['Title'] }}" width="20%">
         </div>
         <div class="text-light text-center movie-categories mb-3">
