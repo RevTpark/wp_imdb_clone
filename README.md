@@ -1,6 +1,9 @@
 # Setup virtual environment
 ```py -m venv venv```
 
+# Activate venv
+```.\venv\Scripts\activate```
+
 # Install Requirements
 ```pip install -r requirements.txt```
 
