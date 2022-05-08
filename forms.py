@@ -28,3 +28,12 @@ class LoginForm(FlaskForm):
     def validate_email(self, field):
         if not User.query.filter_by(email=field.data).first():
             raise ValidationError("Email does not match our records.")
+
+
+class UpdateUserForm(FlaskForm):
+    name = StringField(label='Name', validators=[InputRequired(),Length(max=200)], render_kw={"placeholder": "John Smith"})
+    address = StringField(label='Address', validators=[InputRequired()], render_kw={"placeholder": "123 Main St"})
+    city = StringField(label='City', validators=[InputRequired(),Length(max=100)], render_kw={"placeholder": "Mumbai"})
+    state = SelectField(label='State',choices=["Maharashtra", "Goa", "Kerela"], validators=[InputRequired()])
+    pin_code = StringField(label='Pincode', validators=[InputRequired(), Regexp('^\d{6}$', message="Pincode must be 6 digits only.")], description="Pincode must be 6 digits only.", render_kw={"placeholder": "422007"})
+    phone_number = StringField(label='Mobile Number', validators=[InputRequired(), Regexp('^\d{10}$', message="Mobile Number must be 10 digits only.")], description="Mobile Number must be 10 digits only.", render_kw={"placeholder": "9876543210"})
