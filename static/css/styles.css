@@ -92,7 +92,7 @@ body{
 }
 
 .carousel{
-    text-align: left;
+    text-align: center;
     padding:25px;
     width:60%;
 }
@@ -221,4 +221,8 @@ body{
 
 .DT thead{
     background-color: rgba(128, 128, 128, 0.534);
+}
+
+.row{
+    padding:20px;
 }
