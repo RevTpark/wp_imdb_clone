@@ -7,8 +7,8 @@
         {% for movie in movies %}
             <a href="{{ url_for('movie_details', movie_id=movie['imdbID'])}}" style="text-decoration:none;">
                 <div class="card-tile text-light row">
-                    <div class="col">
-                        <img class="card-image" src="{{ movie['Poster'] }}" alt="Poster for {{ movie['Title']}}" width="25%">
+                    <div class="col-sm-2">
+                        <img class="card-image" src="{{ movie['Poster'] }}" alt="Poster for {{ movie['Title']}}" width="90%">
                     </div>
                     <div class="col">
                         <div class="row">

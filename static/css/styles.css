@@ -63,6 +63,7 @@ body{
     top:0;
 	width:100%;
 	height:100%;
+    padding:25px;
 }
 
 .nav-bar > a > button{
@@ -87,12 +88,13 @@ body{
 
 .top-movies-container{
     margin-bottom: 20px;
-    text-align: center;
+    text-align: left;
 }
 
 .carousel{
-    width: 30%;
-    margin: auto;
+    text-align: left;
+    padding:25px;
+    width:60%;
 }
 
 @media screen and (max-width: 700px) {
@@ -188,7 +190,7 @@ body{
 }
 
 .card-image{
-    border-radius: 25px;
+    border-radius: 15px;
 }
 
 .flash-message{
