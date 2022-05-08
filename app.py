@@ -11,7 +11,7 @@ app.config["SECRET_KEY"] = config("SECRET_KEY")
 db = SQLAlchemy(app)
 
 from models import User, Movie, Order
-from forms import LoginForm, RegisterUserForm
+from forms import LoginForm, RegisterUserForm, UpdateUserForm
 
 @app.route("/")
 def home():
@@ -92,6 +92,35 @@ def sign_up():
         flash("Registered Successfully!", "success")
         return redirect(url_for("home"))
     return render_template("signUp.html", form=form)
+
+
+@app.route("/profile")
+@login_required
+def profile():
+    user = User.query.filter_by(id=session["user_id"]).first()
+    return render_template("profile.html", data=user)
+
+@app.route("/profile/update", methods=["GET", "POST"])
+@login_required
+def profile_update():
+    user = User.query.filter_by(id=session["user_id"]).first()
+    form = UpdateUserForm(obj=user)
+    if form.validate_on_submit():
+        form.populate_obj(user)
+        db.session.commit()
+        flash("Details updated successfully!", "success")
+        return redirect(url_for('profile'))
+    return render_template("updateProfile.html", form=form)
+
+
+@app.route("/delete")
+@login_required
+def delete_account():
+    user = User.query.filter_by(id=session["user_id"]).first()
+    db.session.delete(user)
+    db.session.commit()
+    flash("Account deleted successfully!", "success")
+    return redirect(url_for("home"))
 
 
 @app.route("/movies/<movie_id>")
