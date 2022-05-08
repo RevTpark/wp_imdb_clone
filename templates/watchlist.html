@@ -18,6 +18,9 @@
                     <a href="" style="color: gold;text-decoration:none;">Watch</a>
                 </div>
             </div>
+            {% if len(movies) != cnt+1 %}
+                <hr class="divider">
+            {% endif %}
             {% endfor %}
         </div>
     </div>

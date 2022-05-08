@@ -12,6 +12,11 @@ def fetch_api(param, titleOrId, plot="short"):
     data = response.json()
     return data
 
+def get_top_movies():
+    url = ("https://imdb-api.com/en/API/Top250Movies/k_k6m8sy78")
+    response = requests.get(url)
+    return response.json()['items']
+
 def login_required(f):
     @wraps(f)
     def wrap(*args, **kwargs):

@@ -1,9 +1,12 @@
 from app import db
 from bcrypt import checkpw, hashpw, gensalt
+import click
+from flask.cli import with_appcontext
 
 class User(db.Model):
     __tablename__ = "users"
     id = db.Column(db.Integer, primary_key=True)
+    is_admin = db.Column(db.Boolean, nullable=False, default=False)
     email = db.Column(db.String(255), nullable=False, unique=True)
     password = db.Column(db.String(255), nullable=False)
     name = db.Column(db.String, nullable=False)
@@ -39,3 +42,42 @@ class Order(db.Model):
     order_id = db.Column(db.String, nullable=False, primary_key=True)
     payment_id = db.Column(db.String, nullable=False, unique=True)
     signature = db.Column(db.String, nullable=False)
+
+
+@click.command('init-db')
+@with_appcontext
+def init_db_command():
+    db.create_all()   
+    click.echo('Initialized the database.')
+
+@click.command('seed-data')
+@with_appcontext
+def seed_data_command():
+    admin = User(
+        name="Admin",
+        email="admin@gmail.com",
+        address="221b Baker Street",
+        city="New York",
+        state="Texas",
+        pin_code="520861",
+        phone_number="9876543210",
+        is_admin=True
+    )
+    admin.set_password("admin")
+    db.session.add(admin)
+    db.session.commit()
+
+    consumer = User(
+        name="Marc Spector",
+        email="marc.spector@gmail.com",
+        address="221b Baker Street",
+        city="New York",
+        state="Texas",
+        pin_code="520861",
+        phone_number="9876543210",
+    )
+    consumer.set_password("password")
+    db.session.add(consumer)
+    db.session.commit()
+
+    click.echo('Data Seeeded.')
