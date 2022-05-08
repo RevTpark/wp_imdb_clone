@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block content %}
+<h1 style="color: gold;">Admin Dashboard</h1>
+<div class="card mt-3 mb-3 table-container"> 
+    <table id="dataTable" class="DT table table-striped table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Payment ID</th>
+                <th>Movie Title</th>
+                <th>Amount</th>
+                <th>Method</th>
+                <th>Contact</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in data %}
+                <tr>
+                    <td>{{ record['payment_id'] }}</td>
+                    <td>{{ record['movie_title'] }}</td>
+                    <td>{{ record['amount'] }}</td>
+                    <td>{{ record['method'] }}</td>
+                    <td>{{ record['phone_number'] }}</td>
+                    <td>{{ record['email'] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<script>
+    let table = new DataTable('#dataTable', {
+
+    });
+</script>
+{% endblock %}

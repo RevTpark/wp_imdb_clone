@@ -2,7 +2,7 @@ from flask import Flask, redirect, render_template, request, url_for, session, f
 from flask_sqlalchemy import SQLAlchemy
 import razorpay
 from decouple import config
-from utils import fetch_api, fetch_youtube_video, login_required
+from utils import fetch_api, fetch_youtube_video, get_top_movies, login_required
 
 
 app = Flask(__name__)
@@ -15,7 +15,27 @@ from forms import LoginForm, RegisterUserForm
 
 @app.route("/")
 def home():
-    return render_template("home.html")
+    if session.get("user_id", False):
+        user = User.query.filter_by(id=session['user_id']).first()
+        if user.is_admin:
+            orders = Order.query.all()
+            client = razorpay.Client(auth=(config("RAZORPAY_KEY_ID"), config("RAZORPAY_KEY_SECRET")))
+            data = []
+            for order in orders:
+                resp = client.payment.fetch(order.payment_id)
+                movie_details = Movie.query.filter_by(movie_id=order.movie_id).first()
+                data.append({
+                    "payment_id": order.payment_id,
+                    "amount": resp["amount"]/100,
+                    "movie_title": movie_details.movie_title,
+                    "email": resp["email"],
+                    "phone_number": resp["contact"],
+                    "method": resp["method"].capitalize()
+                })
+            return render_template("admin_dashboard.html", data=data)
+
+    top_movies = get_top_movies()
+    return render_template("home.html", data=top_movies)
 
 @app.route("/search", methods=["GET", "POST"])
 def search_movies():
@@ -92,7 +112,7 @@ def movie_details(movie_id):
 @login_required
 def watchlist():
     movies = Movie.query.filter_by(user_id=session['user_id']).all()
-    return render_template("watchlist.html", movies=movies, enumerate=enumerate)
+    return render_template("watchlist.html", movies=movies, enumerate=enumerate, len=len)
 
 
 @app.route("/buy/<movie_id>", methods=["GET", "POST"])

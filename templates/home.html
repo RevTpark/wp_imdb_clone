@@ -43,4 +43,19 @@
             </button>
         </div>
     </div>
+    <div>
+        <h1 style="color: gold;">Top 10 IMDB Movies</h1>
+        <div class="text-light mt-3 mb-3">
+            {% for movie in data[:10] %}
+            <div class="row p-5">
+                <div class="col">
+                    <img src="{{ movie['image'] }}" alt="Poster for {{ movie['title'] }}" width="50%">
+                </div>
+                <div class="col">{{ movie['title'] }}</div>
+                <div class="col">{{ movie['year'] }}</div>
+                <div class="col">{{ movie['imDbRating'] }}</div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}
