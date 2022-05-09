@@ -1,4 +1,3 @@
-from urllib import response
 from decouple import config
 import requests
 from flask import session, redirect, url_for, flash
@@ -20,7 +19,7 @@ def get_top_movies():
 
 def get_top_shows():
     url = ("https://imdb-api.com/en/API/Top250TVs/k_k6m8sy78")
-    reponse = requests.get(url)
+    response = requests.get(url)
     return response.json()['items']
 
 def login_required(f):
