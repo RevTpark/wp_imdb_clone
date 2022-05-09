@@ -2,7 +2,7 @@ from flask import Flask, redirect, render_template, request, url_for, session, f
 from flask_sqlalchemy import SQLAlchemy
 import razorpay
 from decouple import config
-from utils import fetch_api, fetch_youtube_video, get_top_movies, login_required
+from utils import fetch_api, fetch_youtube_video, get_top_movies, get_top_shows, login_required
 
 
 app = Flask(__name__)
@@ -21,6 +21,7 @@ def home():
             orders = Order.query.all()
             client = razorpay.Client(auth=(config("RAZORPAY_KEY_ID"), config("RAZORPAY_KEY_SECRET")))
             data = []
+            total_profit = 0
             for order in orders:
                 resp = client.payment.fetch(order.payment_id)
                 movie_details = Movie.query.filter_by(movie_id=order.movie_id).first()
@@ -32,9 +33,11 @@ def home():
                     "phone_number": resp["contact"],
                     "method": resp["method"].capitalize()
                 })
-            return render_template("admin_dashboard.html", data=data)
+                total_profit += resp["amount"]/100
+            return render_template("admin_dashboard.html", data=data, total=total_profit)
 
     top_movies = get_top_movies()
+    top_series = get_top_shows()
     return render_template("home.html", data=top_movies)
 
 @app.route("/search", methods=["GET", "POST"])
