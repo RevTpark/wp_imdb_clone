@@ -18,6 +18,7 @@ class User(db.Model):
 
     owned_movies = db.relationship("Movie", cascade="all, delete", backref="User", lazy=True)
     payments_done = db.relationship("Order", cascade="all, delete", backref="User", lazy=True)
+    has_cart = db.relationship("Cart", cascade="all, delete", backref="User", lazy=True)
 
     def set_password(self, password):
         self.password = hashpw(password.encode('utf-8'), gensalt()).decode('ascii')
@@ -40,8 +41,17 @@ class Order(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False, primary_key=True)
     movie_id = db.Column(db.String, db.ForeignKey("movies.movie_id"), nullable=False, primary_key=True)
     order_id = db.Column(db.String, nullable=False, primary_key=True)
-    payment_id = db.Column(db.String, nullable=False, unique=True)
+    payment_id = db.Column(db.String, nullable=False)
     signature = db.Column(db.String, nullable=False)
+
+
+class Cart(db.Model):
+    __tablename__ = "carts"
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+    product_id = db.Column(db.String, nullable=False, unique=True)
+    amount = db.Column(db.Integer, nullable=False)
+    product_title = db.Column(db.String, nullable=False)
 
 
 @click.command('init-db')
