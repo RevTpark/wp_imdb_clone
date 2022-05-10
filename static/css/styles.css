@@ -93,6 +93,7 @@ body{
 
 .carousel{
     text-align: center;
+    margin:auto;
     padding:25px;
     width:60%;
 }
@@ -179,6 +180,7 @@ body{
 }
 
 .movies-list-container{
+    padding:25px;
     margin: 10px 20px 10px 20px;
 }
 
@@ -234,4 +236,29 @@ body{
     border: 2px solid gold;
     border-radius: 50px;
     background-color: rgba(255, 217, 0, 0.288);
+}
+
+#owl-demo-v .item-v{
+    text-align: center;
+    padding:10px;
+    margin: auto;
+    width: 75%;
+}
+#owl-demo-v .item img{
+    text-align: center;
+    display: block;
+    width: 100%;
+    height: 500px;
+}
+
+#owl-demo .item{
+    text-align: center;
+    padding:10px;
+    margin: 3px;
+}
+#owl-demo .item img{
+    text-align: center;
+    display: block;
+    width: 100%;
+    height: 500px;
 }
