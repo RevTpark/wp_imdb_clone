@@ -4,12 +4,12 @@
 
 {% block content %}
     <div>
-        <h1 class="mb-3" style="color: gold;">Hot Trailer</h1>
+        <h1 class="mb-3" style="color: gold;">Hot Trailers</h1>
         <div id="owl-demo-trailer" class="owl-carousel owl-theme">
             {% for video in data['trailers'] %}
             <div class="item">
                 <div class="videoResponsive">
-                    <iframe class="mb-3" width="800" height="480" src="https://www.youtube.com/embed/aWzlQ2N6qqg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe class="mb-3" width="800" height="480" src="https://www.youtube.com/embed/{{ video['id']['videoId'] }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
             {% endfor %}
@@ -18,15 +18,20 @@
     <script>
         $(document).ready(function() {
             $("#owl-demo-trailer").owlCarousel({
-                autoPlay: 3000, //Set AutoPlay to 3 seconds
-                items: 2,
+                autoPlay: 5000, //Set AutoPlay to 3 seconds
+                items: 1,
                 itemsDesktop: [1199, 3],
+                onTranslate: function () {
+                    $('.owl-item').find('video').each(function () {
+                        this.pause();
+                    });
+                },
                 itemsDesktopSmall: [979, 3],
             });
         });
     </script>
     <div class="top-movies-container">
-        <h1 class="mb-3" style="color: gold;">Top Movies</h1>
+        <h1 class="mb-3" style="color: gold;">Popular Movies</h1>
         <!-- Carousel -->
         <div id="demo" class="carousel slide" data-bs-ride="carousel">
 
