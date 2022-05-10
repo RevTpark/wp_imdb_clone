@@ -34,7 +34,7 @@
         <nav class="nav-bar">
             <!-- <form action="{{ url_for('search_movies')}}" method="POST"> -->
                 {% if session.get('user_id', False) %}
-                    <input placeholder="Search for a movie" class="search-bar" style="width: 70%;" id="searchMovieTitle">
+                    <input placeholder="Search for a movie" class="search-bar" style="width: 80%;" id="searchMovieTitle">
                 {% else %}
                     <input placeholder="Search for a movie" class="search-bar" id="searchMovieTitle">
                 {% endif %}
@@ -70,41 +70,31 @@
     {% endwith %}
     {% block content %}{% endblock %}
     <div class="text-light justify-content-center pt-5">
-        <h3>Connect with us</h3>
-        <ul class="nav justify-content-center">
+        <h3 style="padding: 25px; color: gold;">Connect with us</h3>
+        <ul class="nav justify-content-center" style="padding-bottom: 25px;">
             <li class="nav-item">
                 <div class="nav-link px-5">
-                    <a href="#"><button class="btn btn-secondary"><i class="fa-brands fa-instagram"></i></button></a>
+                    <a href="#"><img src="https://bit.ly/397dQhu" alt="Twitter" style="width:30px;height:30px"></button></a>
                 </div>
             </li>
             <li class="nav-item">
                 <div class="nav-link px-5">
-                    <a href="#"><button class="btn btn-secondary"><i class="fa-brands fa-twitter"></i></button></a>
+                    <a href="#"><img src="https://bit.ly/3P5KDnC" alt="Facebook" style="width:35px;height:30px"></button></a>
                 </div>
             </li>
             <li class="nav-item">
                 <div class="nav-link px-5">
-                    <a href="#"><img src="https://bit.ly/3kR8o4I" alt="Instagram" style="width:30px;height:30px"></a>
+                    <a href="#"><img src="https://bit.ly/3kR8o4I" alt="Instagram" style="width:35px;height:30px"></a>
                 </div>
             </li>
             <li class="nav-item">
                 <div class="nav-link px-5">
-                    <a href="#"><img src="https://bit.ly/3vT7Qld" alt="Twitch" style="width:30px;height:30px"></a>
+                    <a href="#"><img src="https://bit.ly/3sk5Jos" alt="Youtube" style="width:40px;height:30px"></a>
                 </div>
             </li>
             <li class="nav-item">
                 <div class="nav-link px-5">
-                    <a href="#"><img src="https://bit.ly/3sk5Jos" alt="Youtube" style="width:30px;height:30px"></a>
-                </div>
-            </li>
-            <li class="nav-item">
-                <div class="nav-link px-5">
-                    <a href="#"><img src="https://bit.ly/3Ph1HqO" alt="Telegram" style="width:30px;height:30px"></a>
-                </div>
-            </li>
-            <li class="nav-item">
-                <div class="nav-link px-5">
-                    <a href="#"><img src="https://bit.ly/3kMRjsO" alt="Reddit" style="width:30px;height:30px"></a>
+                    <a href="#"><img src="https://bit.ly/3kMRjsO" alt="Reddit" style="width:35px;height:30px"></a>
                 </div>
             </li>
         </ul>

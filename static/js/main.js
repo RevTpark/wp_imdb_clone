@@ -83,12 +83,12 @@ function validateSignUp(){
     }
 } 
 
-// $(document).ready(function() {
-//     $("#owl-demo-v").owlCarousel({
-//         autoPlay: 10000, //Set AutoPlay to 3 seconds
-//         items : 1,
-//         video : true,
-//         itemsDesktop : [1199,3],
-//         itemsDesktopSmall : [979,3]
-//     });
-// });
+$(document).ready(function() {
+    $("#owl-demo-v").owlCarousel({
+        autoPlay: 10000, //Set AutoPlay to 3 seconds
+        items : 1,
+        video : true,
+        itemsDesktop : [1199,3],
+        itemsDesktopSmall : [979,3]
+    });
+});

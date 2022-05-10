@@ -17,58 +17,60 @@
             <iframe width="900" src="https://www.youtube.com/embed/{{ movie['videoId'] }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
         </div>
-        <div class="text-light text-center movie-categories mb-3">
-            {% for genre in movie["Genre"] %}
-            <label>{{ genre }}</label>
-            {% endfor %}
-        </div>
-        <div class="text-light">
-            <div class="movie-summary mb-3">
-                <p>
-                    {{ movie['Plot'] }}
-                </p>
-            </div>
-            <div class="row mb-3">
-                <div class="col">Director</div>
-                <div class="col">
-                    {{ movie['Director'] }}
-                </div>
-            </div>
-            <div class="h-divider"></div>
-            <div class="row mb-3 mt-3">
-                <div class="col">Writer</div>
-                <div class="col">{{ movie['Writer'] }}</div>
-            </div>
-            <div class="h-divider"></div>
-            <div class="row mb-3 mt-3">
-                <div class="col">Stars</div>        
-                <ul class="col nav stars-list">
-                    {% for actor in movie['Actors']%}
-                    <li>{{ actor }}</li>
-                    {% endfor %}
-                </ul>
-            </div>
-            <div class="h-divider"></div>
-        </div>
-        <div class="row text-light mt-3 mb-3">
-            <div class="col">Genres</div>
-            <div class="col nav movie-categories">
-                {% for genre in movie['Genre']%}
-                    <label>{{ genre }}</label>
+        <div class="text-light" style="padding: 25px;">
+            <div class="text-light text-center movie-categories mb-3">
+                {% for genre in movie["Genre"] %}
+                <label>{{ genre }}</label>
                 {% endfor %}
             </div>
-        </div>
-        <div class="h-divider mb-3"></div>
-        <div class="text-light">
-            <h2 class="mb-3" style="color:gold;">Storyline</h2>
-            <p>
-                {{ movie['Plot_Full'] }}
-            </p>
-        </div>
-        <div class="text-center mt-3 mb-3">
-            <a href="{{ url_for('buy_movie', movie_id=movie['imdbID']) }}">
-                <button class="btn btn-primary w-25">Buy {{ movie['Type'] }}</button>
-            </a>
+            <div class="text-light">
+                <div class="movie-summary mb-3">
+                    <p>
+                        {{ movie['Plot'] }}
+                    </p>
+                </div>
+                <div class="row mb-3">
+                    <div class="col">Director</div>
+                    <div class="col">
+                        {{ movie['Director'] }}
+                    </div>
+                </div>
+                <div class="h-divider"></div>
+                <div class="row mb-3 mt-3">
+                    <div class="col">Writer</div>
+                    <div class="col">{{ movie['Writer'] }}</div>
+                </div>
+                <div class="h-divider"></div>
+                <div class="row mb-3 mt-3">
+                    <div class="col">Stars</div>        
+                    <ul class="col nav stars-list">
+                        {% for actor in movie['Actors']%}
+                        <li>{{ actor }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="h-divider"></div>
+            </div>
+            <div class="row text-light mt-3 mb-3">
+                <div class="col">Genres</div>
+                <div class="col nav movie-categories">
+                    {% for genre in movie['Genre']%}
+                        <label>{{ genre }}</label>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="h-divider mb-3"></div>
+            <div class="text-light">
+                <h2 class="mb-3" style="color:gold;">Storyline</h2>
+                <p>
+                    {{ movie['Plot_Full'] }}
+                </p>
+            </div>
+            <div class="text-center mt-3 mb-3" style="padding-top: 20px;">
+                <a href="{{ url_for('buy_movie', movie_id=movie['imdbID']) }}">
+                    <button class="btn btn-primary w-25">Buy {{ movie['Type'] }}</button>
+                </a>
+            </div>
         </div>
     </div>
 {% endblock %}

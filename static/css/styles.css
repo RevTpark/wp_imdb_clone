@@ -41,16 +41,17 @@ body{
 
 .search-bar{
     height: 75%;
-    width: 75%;
+    width: 80%;
     padding-left: 10px;
+    margin-right: 10px;
     border-radius: 5px;
     border: none;
 }
 
 
 .videoResponsive {
-	padding-bottom:56.25%;
-    height:0;
+    height:500px;
+    width: 900px;
     position:relative;
 	padding-top:30px;
 	overflow:hidden;
@@ -180,6 +181,8 @@ body{
 }
 
 .movies-list-container{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: larger;
     padding:25px;
     margin: 10px 20px 10px 20px;
 }
@@ -243,44 +246,22 @@ body{
     background-color: rgba(255, 217, 0, 0.288);
 }
 
-<<<<<<< HEAD
-#owl-demo-v .item-v{
-    text-align: center;
-    padding:10px;
-    margin: auto;
-    width: 75%;
-}
-#owl-demo-v .item img{
-    text-align: center;
-    display: block;
-    width: 100%;
-    height: 500px;
-}
-
 #owl-demo .item{
     text-align: center;
-    padding:10px;
-    margin: 3px;
-}
-#owl-demo .item img{
-    text-align: center;
-    display: block;
-    width: 100%;
-    height: 500px;
-=======
-#owl-demo .item{
     padding: 10px;
     margin: 3px;
 
 }
 
 #owl-demo .item img{
+    text-align: center;
     display: block;
     width: 100%;
     height: 400px;
 }
 
 #owl-demo-2 .item{
+    text-align: center;
     padding: 10px;
     margin: 3px;
 
@@ -296,5 +277,4 @@ body{
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
->>>>>>> dcc3e173be80c9424fac168a318df3dd63eeef18
 }
