@@ -5,10 +5,26 @@
 {% block content %}
     <div>
         <h1 class="mb-3" style="color: gold;">Hot Trailer</h1>
-        <div class="videoResponsive">
-            <iframe class="mb-3" width="800" height="480" src="https://www.youtube.com/embed/aWzlQ2N6qqg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div id="owl-demo-trailer" class="owl-carousel owl-theme">
+            {% for video in trailers %}
+            <div class="item">
+                <div class="videoResponsive">
+                    <iframe class="mb-3" width="800" height="480" src="https://www.youtube.com/embed/aWzlQ2N6qqg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+            {% endfor %}
         </div>
     </div>
+    <script>
+        $(document).ready(function() {
+            $("#owl-demo-trailer").owlCarousel({
+                autoPlay: 3000, //Set AutoPlay to 3 seconds
+                items: 2,
+                itemsDesktop: [1199, 3],
+                itemsDesktopSmall: [979, 3],
+            });
+        });
+    </script>
     <div class="top-movies-container">
         <h1 class="mb-3" style="color: gold;">Top Movies</h1>
         <!-- Carousel -->
@@ -45,55 +61,56 @@
     </div>
     <div>
         <h1 style="color: gold;">Top IMDB Movies</h1>
-        <div class="row">
-            <div class="col">
+        <div id="owl-demo" class="owl-carousel owl-theme">
+            {% for movie in data['movies'][:10] %}
+            <div class="item">
                 <div class="card">
-                    {% for movie in data[:1] %}
                     <img class="card-img-top" src="{{ movie['image'] }}" alt="Poster for {{ movie['title'] }}" width="50%">
                     <div class="card-body">
-                        <h5 class="card-title">{{ movie['title'] }}</h5>
+                        <h5 class="card-title overflow-text">{{ movie['title'] }}</h5>
                         <p class="card-text">{{ movie['year'] }}</p>
                         <p class="card-text">{{ movie['imDbRating'] }}</p>
                     </div>
-                    {% endfor %}
                 </div>
             </div>
-            <div class="col">
-                <div class="card">
-                    {% for movie in data[1:2] %}
-                    <img class="card-img-top" src="{{ movie['image'] }}" alt="Poster for {{ movie['title'] }}" width="50%">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ movie['title'] }}</h5>
-                        <p class="card-text">{{ movie['year'] }}</p>
-                        <p class="card-text">{{ movie['imDbRating'] }}</p>
-                    </div>
-                    {% endfor %}
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    {% for movie in data[2:3] %}
-                    <img class="card-img-top" src="{{ movie['image'] }}" alt="Poster for {{ movie['title'] }}" width="50%">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ movie['title'] }}</h5>
-                        <p class="card-text">{{ movie['year'] }}</p>
-                        <p class="card-text">{{ movie['imDbRating'] }}</p>
-                    </div>
-                    {% endfor %}
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    {% for movie in data[3:4] %}
-                    <img class="card-img-top" src="{{ movie['image'] }}" alt="Poster for {{ movie['title'] }}" width="50%">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ movie['title'] }}</h5>
-                        <p class="card-text">{{ movie['year'] }}</p>
-                        <p class="card-text">{{ movie['imDbRating'] }}</p>
-                    </div>
-                    {% endfor %}
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
+    <script>
+        $(document).ready(function() {
+            $("#owl-demo").owlCarousel({
+                autoPlay: 3000, //Set AutoPlay to 3 seconds
+                items: 4,
+                itemsDesktop: [1199, 3],
+                itemsDesktopSmall: [979, 3],
+            });
+        });
+    </script>
+    <div>
+        <h1 style="color: gold; padding: 25px;">Top IMDB Shows</h1>
+        <div id="owl-demo-2" class="owl-carousel owl-theme">
+            {% for movie in data['series'][:10] %}
+            <div class="item">
+                <div class="card">
+                    <img class="card-img-top" src="{{ movie['image'] }}" alt="Poster for {{ movie['title'] }}" width="50%">
+                    <div class="card-body">
+                        <h5 class="card-title overflow-text">{{ movie['title'] }}</h5>
+                        <p class="card-text">{{ movie['year'] }}</p>
+                        <p class="card-text">{{ movie['imDbRating'] }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <script>
+        $(document).ready(function() {
+            $("#owl-demo-2").owlCarousel({
+                autoPlay: 3000, //Set AutoPlay to 3 seconds
+                items: 4,
+                itemsDesktop: [1199, 3],
+                itemsDesktopSmall: [979, 3]
+            });
+        });
+    </script>
 {% endblock %}

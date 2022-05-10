@@ -240,3 +240,33 @@ body{
     border-radius: 50px;
     background-color: rgba(255, 217, 0, 0.288);
 }
+
+#owl-demo .item{
+    padding: 10px;
+    margin: 3px;
+
+}
+
+#owl-demo .item img{
+    display: block;
+    width: 100%;
+    height: 400px;
+}
+
+#owl-demo-2 .item{
+    padding: 10px;
+    margin: 3px;
+
+}
+
+#owl-demo-2 .item img{
+    display: block;
+    width: 100%;
+    height: 400px;
+}
+
+.overflow-text{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

@@ -2,7 +2,7 @@ from flask import Flask, redirect, render_template, request, url_for, session, f
 from flask_sqlalchemy import SQLAlchemy
 import razorpay
 from decouple import config
-from utils import fetch_api, fetch_youtube_video, get_top_movies, get_top_shows, login_required
+from utils import fetch_api, fetch_trailers, fetch_youtube_video, get_top_movies, get_top_shows, login_required
 
 
 app = Flask(__name__)
@@ -41,7 +41,13 @@ def home():
 
     top_movies = get_top_movies()
     top_series = get_top_shows()
-    return render_template("home.html", data=top_movies)
+    new_trailers = fetch_trailers("trailer")
+    data = {
+        "movies": top_movies,
+        "series": top_series,
+        "trailers": new_trailers
+    }
+    return render_template("home.html", data=data)
 
 
 @app.route("/search", methods=["GET", "POST"])
