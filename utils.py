@@ -5,7 +5,7 @@ from functools import wraps
 import os
 import googleapiclient.discovery
 import googleapiclient.errors
-from constants import top_movies, top_series
+from constants import top_movies, top_series, new_trailers
 
 def fetch_api(param, titleOrId, plot="short"):
     url = (f"http://www.omdbapi.com/?apikey=ca4430d&{param}={titleOrId}&plot={plot}")
@@ -80,3 +80,6 @@ def fetch_trailers(query):
     )
     response = request.execute()
     return response['items']
+
+def get_new_trailers():
+    return new_trailers
