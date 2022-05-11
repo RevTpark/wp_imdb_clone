@@ -288,3 +288,8 @@ body{
     border-radius: 10px;
     background-color: darkgrey;
 }
+.cart-empty-container{
+    background-color: rgba(128, 128, 128, 0.594);
+    border-radius: 50px;
+    border: 2px darkgrey solid;
+}

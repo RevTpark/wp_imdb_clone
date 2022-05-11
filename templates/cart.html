@@ -5,6 +5,13 @@
 {% block content %}
 <h1 class="text-light mb-3">My Cart</h1>
 <div class="movies-list-container">
+    {% if not data %}
+    <div class="mt-3 mb-3 p-3 cart-empty-container">
+        <h2 class="text-light text-center">
+            Your Cart is Empty!
+        </h2>
+    </div>
+    {% else %}
     {% for item in data %}
         <a href="{{ url_for('movie_details', movie_id=item['movie']['imdbID'])}}" style="text-decoration:none;">
             <div class="card-tile text-light row" style="height:300px; font-size: larger;">
@@ -36,6 +43,7 @@
             </div>
         </a>
     {% endfor %}
+    {% endif %}
     <div class="d-flex justify-content-between text-light">
         <div class="">
             <h3 class="text-warning">Cart Total</h3>
@@ -44,9 +52,11 @@
             <h3 class="text-warning">₹ {{ total }}</h3>
         </div>
     </div>
+    {% if data %}
     <div class="text-center">
         <a href="{{ url_for('checkout' )}}"><button class="btn btn-primary w-25">Checkout</button></a>
     </div>
+    {% endif %}
 </div>
 
 {% endblock %}

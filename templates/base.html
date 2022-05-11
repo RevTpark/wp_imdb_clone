@@ -34,12 +34,20 @@
         <nav class="nav-bar">
             <!-- <form action="{{ url_for('search_movies')}}" method="POST"> -->
                 {% if session.get('user_id', False) %}
-                    <input placeholder="Search for a movie" class="search-bar" style="width: 75%;" id="searchMovieTitle">
+                    <input placeholder="Search for a movie" class="search-bar" style="width: 75%;" id="searchMovieTitle" onkeydown="handleKeyEvent(event)">
                 {% else %}
                     <input placeholder="Search for a movie" class="search-bar" id="searchMovieTitle">
                 {% endif %}
                 <button class="btn btn-secondary" onclick="handleSearch()" id="searchMovie"><i class="fa fa-search"></i></button>
             <!-- </form> -->
+            <script>
+                function handleKeyEvent(event) {
+                        var x = event.key;
+                        if(x == "Enter"){
+                            handleSearch();
+                    }
+                }
+            </script>
             {% if not session['user_id'] %}
                 <a href="{{ url_for('sign_in')}}"><button class="btn btn-primary">Sign In</button></a>
             {% else %}
