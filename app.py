@@ -55,7 +55,15 @@ def search_movies():
     data = []
     if request.method == "POST":
         title = request.form.get("search")
-        data = fetch_api("s", title)["Search"]
+        if not title:
+            flash("Please enter a movie title.", "info")
+            return redirect(url_for("home"))
+        data = fetch_api("s", title)
+
+        if not data.get("Search"):
+            flash("No movies with such title exists.", "info")
+            return redirect(url_for("home"))
+
         for cnt, movie in enumerate(data):
             details = fetch_api("i", movie['imdbID'])
             data[cnt]["Type"] = data[cnt]["Type"].capitalize()
