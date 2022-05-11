@@ -63,7 +63,7 @@ def search_movies():
         if not data.get("Search"):
             flash("No movies with such title exists.", "info")
             return redirect(url_for("home"))
-
+        data = data["Search"]
         for cnt, movie in enumerate(data):
             details = fetch_api("i", movie['imdbID'])
             data[cnt]["Type"] = data[cnt]["Type"].capitalize()
