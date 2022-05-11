@@ -34,7 +34,7 @@
         <nav class="nav-bar">
             <!-- <form action="{{ url_for('search_movies')}}" method="POST"> -->
                 {% if session.get('user_id', False) %}
-                    <input placeholder="Search for a movie" class="search-bar" style="width: 80%;" id="searchMovieTitle">
+                    <input placeholder="Search for a movie" class="search-bar" style="width: 75%;" id="searchMovieTitle">
                 {% else %}
                     <input placeholder="Search for a movie" class="search-bar" id="searchMovieTitle">
                 {% endif %}

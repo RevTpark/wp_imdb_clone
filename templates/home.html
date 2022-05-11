@@ -77,7 +77,7 @@
                     <img class="card-img-top" src="{{ movie['image'] }}" alt="Poster for {{ movie['title'] }}" width="50%">
                     <div class="card-body">
                         <h5 class="card-title overflow-text">{{ movie['title'] }}</h5>
-                        <p class="card-text">{{ movie['year'] }}</p>
+                        <p class="card-text">Year: {{ movie['year'] }}</p>
                         <p class="card-text">{{ movie['imDbRating'] }}</p>
                     </div>
                 </div>
@@ -104,8 +104,11 @@
                     <img class="card-img-top" src="{{ movie['image'] }}" alt="Poster for {{ movie['title'] }}" width="50%">
                     <div class="card-body">
                         <h5 class="card-title overflow-text">{{ movie['title'] }}</h5>
-                        <p class="card-text">{{ movie['year'] }}</p>
-                        <p class="card-text">{{ movie['imDbRating'] }}</p>
+                        <p class="card-text" style="font-weight: bold;">{{ movie['year'] }}</p>
+                        <div class="d-flex justify-content-center" >
+                            <img src="https://bit.ly/3w2H7CR" style="width: 15px; height:15px; text-align: center; margin-top: 4px; margin-right: 2px;">
+                            <p class="card-text">{{ movie['imDbRating'] }}</p>
+                        </div>
                     </div>
                 </div>
             </div>

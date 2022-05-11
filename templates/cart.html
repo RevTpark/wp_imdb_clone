@@ -7,9 +7,9 @@
 <div class="movies-list-container">
     {% for item in data %}
         <a href="{{ url_for('movie_details', movie_id=item['movie']['imdbID'])}}" style="text-decoration:none;">
-            <div class="card-tile text-light row">
-                <div class="col-3">
-                    <img class="card-image" src="{{ item['movie']['Poster'] }}" alt="Poster for {{ item['movie']['Title']}}" width="35%">
+            <div class="card-tile text-light row" style="height:300px; font-size: larger;">
+                <div class="col-sm-2">
+                    <img class="card-image" src="{{ item['movie']['Poster'] }}" alt="Poster for {{ item['movie']['Title']}}" width="80%">
                 </div>
                 <div class="col">
                     <div class="row">

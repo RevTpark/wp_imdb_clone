@@ -5,6 +5,12 @@
 {% block content %}
     <div class="text-light text-center mb-3">
         <h1 class="mb-3" style="color: gold;">My Movies</h1>
+        {% if not movies %}
+        <div class="no-movies">
+            <h2 style="text-align: center;">No movies added yet.</h2>
+            <h5 style="padding-top: 10px;">Please add movies</h5>
+        </div>
+        {% else %}
         <div class="watch-list">
             {% for cnt, movie in enumerate(movies) %}
             <div class="row">
@@ -23,5 +29,6 @@
             {% endif %}
             {% endfor %}
         </div>
+        {% endif %}
     </div>
 {% endblock %}
