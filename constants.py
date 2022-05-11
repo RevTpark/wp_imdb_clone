@@ -227,3 +227,175 @@ top_series = {
     }
   ]
 }
+
+new_trailers = [
+  {
+    'kind': 'youtube#searchResult', 
+    'etag': 'Tz5LoZUut6CuAbSP2OceckpU0DA', 
+    'id': {
+      'kind': 'youtube#video', 
+      'videoId': 'UQBBrNMF9XA'
+    }, 
+    'snippet': {
+      'publishedAt': '2022-05-10T16:15:57Z', 
+      'channelId': 'UCi8e0iOVk1fEOogdfu4YgfA', 
+      'title': 'Hustle Trailer #1 (2022) | Movieclips Trailers', 
+      'description': 'Check out the Hustle Official Trailer starring Adam Sandler! Let us know what you think in the comments below. ▻ Visit Fandango: ...', 
+      'thumbnails': {
+        'default': {
+          'url': 'https://i.ytimg.com/vi/UQBBrNMF9XA/default.jpg', 
+          'width': 120, 
+          'height': 90
+          }, 'medium': {
+            'url': 'https://i.ytimg.com/vi/UQBBrNMF9XA/mqdefault.jpg', 
+            'width': 320, 
+            'height': 180
+          }, 
+          'high': {
+            'url': 'https://i.ytimg.com/vi/UQBBrNMF9XA/hqdefault.jpg', 
+            'width': 480, 
+            'height': 360
+          }
+        }, 
+        'channelTitle': 'Movieclips Trailers', 
+        'liveBroadcastContent': 'none', 
+        'publishTime': '2022-05-10T16:15:57Z'
+      }
+  }, 
+  {
+    'kind': 'youtube#searchResult', 
+    'etag': 'XIjvKLBrI6ayGohnLCJemagLoac', 
+    'id': {
+      'kind': 'youtube#video', 
+      'videoId': 'Iwm0IO-NFRM'
+      }, 
+      'snippet': {
+        'publishedAt': '2022-05-09T15:00:12Z', 
+        'channelId': 'UCx-KWLTKlB83hDI6UKECtJQ', 
+        'title': 'Father of the Bride | Official Trailer | HBO Max', 
+        'description': 'Billy (Andy Garcia) and Ingrid (Gloria Estefan) are surprised when their eldest daughter Sofia (Adria Arjona) comes home to Miami ...', 
+        'thumbnails': {
+          'default': {
+            'url': 'https://i.ytimg.com/vi/Iwm0IO-NFRM/default.jpg', 
+            'width': 120, 
+            'height': 90
+          }, 
+          'medium': {
+            'url': 'https://i.ytimg.com/vi/Iwm0IO-NFRM/mqdefault.jpg', 
+            'width': 320, 
+            'height': 180
+          }, 
+          'high': {
+            'url': 'https://i.ytimg.com/vi/Iwm0IO-NFRM/hqdefault.jpg', 
+            'width': 480, 
+            'height': 360
+          }
+        }, 
+        'channelTitle': 'HBO Max', 
+        'liveBroadcastContent': 'none', 
+        'publishTime': '2022-05-09T15:00:12Z'
+      }
+    }, 
+    {
+      'kind': 'youtube#searchResult', 
+      'etag': 'XgtL48fz9227N4xhpVkIUWOSH1o', 
+      'id': {
+        'kind': 'youtube#video', 
+        'videoId': 'nUZSU-eScag'
+      }, 
+      'snippet': {
+        'publishedAt': '2022-05-07T15:00:32Z', 
+        'channelId': 'UCi8e0iOVk1fEOogdfu4YgfA', 
+        'title': 'New Trailers This Week | Week 18 (2022) | Movieclips Trailers', 
+        'description': "Check out the top new trailers released this week that you've gotta see! Let us know what you think in the comments below.", 
+        'thumbnails': {
+          'default': {
+            'url': 'https://i.ytimg.com/vi/nUZSU-eScag/default.jpg', 
+            'width': 120, 
+            'height': 90
+          }, 
+          'medium': {
+            'url': 'https://i.ytimg.com/vi/nUZSU-eScag/mqdefault.jpg', 
+            'width': 320, 
+            'height': 180
+          }, 
+          'high': {
+            'url': 'https://i.ytimg.com/vi/nUZSU-eScag/hqdefault.jpg', 
+            'width': 480, 
+            'height': 360
+          }
+        }, 
+        'channelTitle': 'Movieclips Trailers', 
+        'liveBroadcastContent': 'none', 
+        'publishTime': '2022-05-07T15:00:32Z'
+      }
+    }, 
+    {
+      'kind': 'youtube#searchResult', 
+      'etag': 'LaYvBHBfflaSLoYbTCeNxvob2lI', 
+      'id': {
+        'kind': 'youtube#video', 
+        'videoId': 'bmiZzjaDe9s'
+      }, 
+      'snippet': {
+        'publishedAt': '2022-04-29T21:07:20Z', 
+        'channelId': 'UCwBV-eg1dAkzrdjqJfyEj0w', 
+        'title': 'NEW MOVIE TRAILERS 2022', 
+        'description': 'Upcoming Movies Included: 0:00 THE BLACK PHONE Trailer 2 (2022) ----*Removed***** 2:16 TOP GUN: MAVERICK Final ...', 
+        'thumbnails': {
+          'default': {
+            'url': 'https://i.ytimg.com/vi/bmiZzjaDe9s/default.jpg', 
+            'width': 120, 
+            'height': 90
+          }, 
+          'medium': {
+            'url': 'https://i.ytimg.com/vi/bmiZzjaDe9s/mqdefault.jpg', 
+            'width': 320, 
+            'height': 180
+          }, 
+          'high': {
+            'url': 'https://i.ytimg.com/vi/bmiZzjaDe9s/hqdefault.jpg', 
+            'width': 480, 
+            'height': 360
+          }
+        }, 
+        'channelTitle': 'MovieGasm.com', 
+        'liveBroadcastContent': 'none', 
+        'publishTime': '2022-04-29T21:07:20Z'
+      }
+    },
+    {
+      'kind': 'youtube#searchResult', 
+      'etag': 'vPh5C8LcUPRJRECIcdGM3r8SyEA', 
+      'id': {
+        'kind': 'youtube#video', 
+        'videoId': 'DnvQUQd2Eu4'
+      }, 
+      'snippet': {
+        'publishedAt': '2022-04-29T09:56:03Z', 
+        'channelId': 'UCLRlryMfL8ffxzrtqv0_k_w', 
+        'title': 'THE BEST UPCOMING MOVIES 2022 (Trailers)', 
+        'description': 'Top Upcoming Movies 2022 Trailer Compilation | Subscribe ➤ https://abo.yt/ki | Movie Trailer | More https://KinoCheck.com ...', 
+        'thumbnails': {
+          'default': {
+            'url': 'https://i.ytimg.com/vi/DnvQUQd2Eu4/default.jpg', 
+            'width': 120, 
+            'height': 90
+          }, 
+          'medium': {
+            'url': 'https://i.ytimg.com/vi/DnvQUQd2Eu4/mqdefault.jpg', 
+            'width': 320, 
+            'height': 180
+          }, 
+          'high': {
+            'url': 'https://i.ytimg.com/vi/DnvQUQd2Eu4/hqdefault.jpg', 
+            'width': 480, 
+            'height': 360
+          }
+        }, 
+        'channelTitle': 'KinoCheck.com', 
+        'liveBroadcastContent': 'none', 
+        'publishTime': '2022-04-29T09:56:03Z'
+      }
+    }
+  ]
